@@ -19,6 +19,8 @@ class CalculatorService
       raise ArgumentError, "Negatives not allowed: #{negatives.join(', ')}"
     end
 
+    numbers = numbers.reject { |num| num > 1000 }
+
     numbers.sum
   end 
 end  

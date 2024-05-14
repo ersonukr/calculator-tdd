@@ -43,5 +43,11 @@ RSpec.describe CalculatorService do
         expect { CalculatorService.add("1,-2,3,-4") }.to raise_error(ArgumentError, "Negatives not allowed: -2, -4")
       end
     end
+
+    context 'when numbers larger than 1000 are present' do
+      it 'ignores numbers larger than 1000 and returns the sum' do
+        expect(CalculatorService.add("2,1001")).to eq(2)
+      end
+    end
   end
 end
