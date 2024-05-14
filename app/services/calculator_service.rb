@@ -13,7 +13,11 @@ class CalculatorService
     end
 
     numbers = string.split(/#{delimiter}|\n/).map(&:to_i)
-    raise ArgumentError, "Invalid input format" if numbers.include?(nil) # Check for invalid conversion to integer
+    negatives = numbers.select { |num| num.negative? }
+
+    if negatives.any?
+      raise ArgumentError, "Negatives not allowed: #{negatives.join(', ')}"
+    end
 
     numbers.sum
   end 

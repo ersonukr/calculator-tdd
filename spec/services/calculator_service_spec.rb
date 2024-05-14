@@ -37,5 +37,11 @@ RSpec.describe CalculatorService do
         expect(CalculatorService.add("//;\n1;2")).to eq(3)
       end
     end
+
+    context 'when there are negative numbers' do
+      it 'raises ArgumentError with all negative numbers' do
+        expect { CalculatorService.add("1,-2,3,-4") }.to raise_error(ArgumentError, "Negatives not allowed: -2, -4")
+      end
+    end
   end
 end
