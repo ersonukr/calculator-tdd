@@ -7,5 +7,11 @@ RSpec.describe CalculatorService do
         expect(CalculatorService.add("")).to eq(0)
       end
     end
+
+    context 'when string contains a single number' do
+      it 'returns the number' do
+        expect(CalculatorService.add("1")).to eq(1)
+      end
+    end
   end
 end
