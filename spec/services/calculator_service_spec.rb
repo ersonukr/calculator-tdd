@@ -13,5 +13,11 @@ RSpec.describe CalculatorService do
         expect(CalculatorService.add("1")).to eq(1)
       end
     end
+
+    context 'when string contains multiple numbers' do
+      it 'returns the sum of the numbers' do
+        expect(CalculatorService.add("1,4")).to eq(5)
+      end
+    end
   end
 end
